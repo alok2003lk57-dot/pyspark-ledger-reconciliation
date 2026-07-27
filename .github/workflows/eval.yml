@@ -28,6 +28,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyspark pandas pyarrow
 
+      - name: Setup /app Directory Permissions
+        run: |
+          sudo mkdir -p /app
+          sudo chown -R $USER:$USER /app
+
       - name: Generate Synthetic Data
         run: python data_generator.py
 
